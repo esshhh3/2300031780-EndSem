@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hms-backend
+  labels:
+    app: hms-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hms-backend
+  template:
+    metadata:
+      labels:
+        app: hms-backend
+    spec:
+      containers:
+      - name: hms-backend
+        image: your-dockerhub-username/hms-backend:latest
+        ports:
+        - containerPort: 8080
